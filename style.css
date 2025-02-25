@@ -46,6 +46,11 @@
 }
 
 /*set default layout*/
+
+:root {
+  --vh: 1vh;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -60,6 +65,7 @@ body {
   font-family: 'Prompt', sans-serif;
   background: linear-gradient(0deg, #1c1d21 , #264741);
   background-attachment: fixed;
+  height: calc(var(--vh, 1vh) * 100);
   font-size: 18px;
   overflow-x: hidden;
 }
