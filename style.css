@@ -206,7 +206,7 @@ nav {
 }
 
 .home-context h1 span {
-  color: #58f195e3;
+  color: #46f56f;
 }
 
 .home-context p {
@@ -267,6 +267,18 @@ nav {
   box-shadow: 0 0px 4px 4px #1c1d2133;
 }
 
+.underline {
+  position: relative;
+}
+
+.underline img {
+  position: absolute;
+  bottom: 8%;
+  width: 210px;
+  height: 15px;
+  z-index: -1;
+}
+
 /*personal info box*/
 .context-info {
   display: grid;
@@ -300,11 +312,6 @@ nav {
     grid-column: 1 / span 2;
     justify-self: start;
     width: 100%;
-}
-
-.context-info h2 {
-  text-shadow: 0 0 4px   #58f1957d;
-  color: #f0f0f0;
 }
 
 /*box skill layout*/
@@ -400,6 +407,13 @@ nav {
 
   .info-grid p:nth-child(6) {
     grid-column: 1;
+  }
+
+  .underline img {
+    position: absolute;
+    bottom: 6%;
+    width: 170px;
+    height: 12px;
   }
 
   /*change box skill layout to 2 columns*/
@@ -535,6 +549,14 @@ h1 {
     width: 100%;
     padding: 40px;
   }
+
+  .underline img {
+    position: absolute;
+    bottom: 6%;
+    width: 140px;
+    height: 10px;
+  }
+
 
   .box {
     height: 130px;
