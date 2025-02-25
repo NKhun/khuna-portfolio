@@ -22,8 +22,11 @@
   animation: fadeInBlur 1s ease-in-out;
 }
 
-.curser-shadow.none {
-  display: none;
+
+@media (pointer: coarse) {
+  .cursor-shadow {
+    display: none;
+  }
 }
 
 .invert {
@@ -42,15 +45,10 @@
   border-radius: 50%;
   pointer-events: none;
   transform: translate(-100%, -100%);
-  transition: transform 0.1s ease-out;
+  transition: transform 0.05s ease-in-out;
 }
 
 /*set default layout*/
-
-:root {
-  --vh: 1vh;
-}
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -65,7 +63,6 @@ body {
   font-family: 'Prompt', sans-serif;
   background: linear-gradient(0deg, #1c1d21 , #264741);
   background-attachment: fixed;
-  height: calc(var(--vh, 1vh) * 100);
   font-size: 18px;
   overflow-x: hidden;
 }
