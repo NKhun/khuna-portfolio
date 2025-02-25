@@ -235,7 +235,7 @@ nav {
   box-shadow: 0 0px 4px 4px #1c1d2133;
 }
 
-/*info layout*/
+/*personal info box*/
 .context-info {
   display: grid;
   grid-template-columns: repeat(1, 2fr);
@@ -246,7 +246,7 @@ nav {
   height: auto;
   margin: auto;
   padding: 40px;
-  background: #1e1e1e3b;
+  background: rgba(36, 36, 36, 0.2);
   border: 1px solid #555555;
   backdrop-filter: blur(10px);
   border-radius: 10px;
@@ -288,7 +288,7 @@ nav {
   justify-content: center;
   height: 150px;
   width: 150px;
-  background:rgba(36, 36, 36, 0.114);
+  background:rgba(36, 36, 36, 0.2);
   backdrop-filter: blur(10px);
   border: 1px solid #555555;
   padding: 20px;
@@ -315,6 +315,11 @@ nav {
   body {
     font-size: 14px;
   }
+
+  .cursor-shadow {
+    display: none;
+  }
+  
   .about-me h1 {
     font-size: 3em;
   }
@@ -351,10 +356,6 @@ nav {
 @media screen and (max-width: 768px) {
   body {
     font-size: 12px;
-  }
-
-  .cursor-shadow {
-    display: none;
   }
   
   /* change nav layout*/
