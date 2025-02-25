@@ -81,6 +81,11 @@ hr {
   margin: 5% 10%;
 }
 
+h1 {
+  font-size: 4.4em;
+  color: #f0f0f0;
+}
+
 h2 {
   display: flex;
   align-self: center;
@@ -323,7 +328,7 @@ nav {
     font-size: 14px;
   }
   
-  .about-me h1 {
+  h1 {
     font-size: 3em;
   }
 
@@ -366,7 +371,11 @@ nav {
   body {
     font-size: 12px;
   }
-  
+
+h1 {
+    font-size: 2em;
+  }
+
   /* change nav layout*/
   nav {
     position: fixed;
