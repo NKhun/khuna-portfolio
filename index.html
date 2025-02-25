@@ -149,7 +149,13 @@
         <script>
             //curser shadow
             const cursor = document.querySelector('.cursor-shadow');
+            function hasMouse() {
+                return window.matchMedia("(pointer: fine)").matches;
+            }
 
+            if (hasMouse()) {
+                document.querySelector('.cursor-shadow').classList.add('none')
+            }
             document.addEventListener('mousemove', (e) => {
                 cursor.style.left = `${e.clientX}px`;
                 cursor.style.top = `${e.clientY}px`;
