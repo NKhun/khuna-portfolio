@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Prompt&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
 /*animation on scroll*/
 @keyframes fadeInBlur {
@@ -57,7 +58,7 @@
   opacity: 0.5;
   border-radius: 50%;
   pointer-events: none;
-  transform: translate(-100%, -100%);
+  transform: translate(-50%, -50%);
   transition: transform 0.05s ease-in-out;
 }
 
@@ -73,7 +74,7 @@ html {
 }
 
 body {
-  font-family: 'Prompt', sans-serif;
+  font-family: 'Prompt', 'Ubuntu', sans-serif;
   font-size: 18px;
   overflow-x: hidden;
 }
@@ -199,14 +200,22 @@ nav {
   margin-left: 50px;
 }
 
-.home-page h1 {
+.home-context h1 {
   font-size: 4.4em;
   color: #f0f0f0;
 }
 
-.home-page p {
+.home-context h1 span {
+  color: #58f195e3;
+}
+
+.home-context p {
   font-size: 1.1em;
   color: #f0f0f096;
+}
+
+.home-context p span:hover {
+  color: #f0f0f0;
 }
 
 /*contact list*/
@@ -293,25 +302,29 @@ nav {
     width: 100%;
 }
 
+.context-info h2 {
+  text-shadow: 0 0 4px   #58f1957d;
+  color: #f0f0f0;
+}
 
 /*box skill layout*/
 .box-container {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: auto;
   gap: 20px;
   padding: 40px 0;
   z-index: 0;
 }
 
 .box {
+  position: relative; /* สำคัญ! เพื่อให้ overlay อ้างอิงกับ box นี้ */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 150px;
   width: 150px;
-  background:rgba(36, 36, 36, 0.2);
+  background: rgba(36, 36, 36, 0.2);
   backdrop-filter: blur(10px);
   border: 1px solid #555555;
   padding: 20px;
@@ -328,10 +341,36 @@ nav {
   margin-bottom: 3px;
 }
 
+/* Overlay description */
+.description {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background: linear-gradient(to top, #f0f0f0d3 50%, rgba(138, 138, 138, 0.108));
+  backdrop-filter: blur(10px);
+  color: #1c1d21;
+  font-size: 0.6em;
+  font-weight: lighter;
+  text-align: left;
+  opacity: 0;
+  transition: all 0.3s ease;
+  padding: 15px;
+  border-radius: 10px;
+  z-index: 10;
+}
+
+.box:hover .description {
+  opacity: 1;
+}
+
 .box:hover {
   transform: scale(1.05);
 }
-
 
 /* Media Query for 1024px */
 @media screen and (max-width: 1024px) {
@@ -441,6 +480,7 @@ h1 {
     align-items: center;
     border: 2px solid #555;
     border-radius: 10px;
+    font-size: 1.1em;
     opacity: 0;
     transform: translateY(-25px);
     pointer-events: none;
@@ -459,6 +499,11 @@ h1 {
   }
 
   .nav-list li a svg {
+    display: none;
+  }
+
+  /*disable tooltips*/
+  .nav-list li a::after  {
     display: none;
   }
 
