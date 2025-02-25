@@ -56,12 +56,13 @@
 }
 
 html {
-  scroll-behavior: smooth;
-  background: linear-gradient(0deg, #1c1d21 , #264741);
-  background-attachment: fixed;
+  scroll-behavior: smooth; 
 }
 
 body {
+  background: linear-gradient(0deg, #1c1d21 , #264741);
+  background-attachment: fixed;
+  -webkit-background-attachment: fixed;
   font-family: 'Prompt', sans-serif;
   font-size: 18px;
   overflow-x: hidden;
