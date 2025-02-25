@@ -22,6 +22,25 @@
   animation: fadeInBlur 1s ease-in-out;
 }
 
+.invert {
+  filter: invert(0.9);
+}
+
+/*curser shadow*/
+.cursor-shadow {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.155);
+  box-shadow: 0 0 25px 20px rgba(255, 255, 255, 0.16);
+  filter: blur(0.5);
+  opacity: 0.5;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease-out;
+}
+
 /*set default layout*/
 * {
   box-sizing: border-box;
@@ -40,7 +59,7 @@ body {
   font-size: 18px;
   overflow-x: hidden;
 }
-
+  
 .container {
   display: flex;
   min-height: 100vh;
@@ -51,9 +70,21 @@ hr {
   border: none;
   height: 1px;
   width: 80%;
-  background: #ffffff40; /* สีขาวโปร่งแสง */
+  background: #ffffff40;
   margin: 5% 10%;
 }
+
+h2 {
+  display: flex;
+  align-self: center;
+  font-size: 1.7em;
+  color: #f0f0f0;
+}
+
+p {
+  color: #f0f0f0;
+}
+
 
 /* Navigation sidebar*/
 nav {
@@ -77,7 +108,7 @@ nav {
   list-style: none;
   width: 80px;
   height: 250px;
-  background-color:rgba(36, 36, 36, 0.514);
+  background-color:rgba(36, 36, 36, 0.425);
   border: 1px solid #555555;
   border-radius: 40px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -89,11 +120,11 @@ nav {
   position: relative;
   text-decoration: none;
   color: #f0f0f0;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.2s ease-out;
 }
 
 .nav-list li a:hover {
-  transform: scale(1.05);
+  transform: scale(1.07);
 }
 
 /*tooltip*/
@@ -176,21 +207,69 @@ nav {
   color: #f0f0f0;
 }
 
-.skill-page {
+/*personal info page*/
+.profile-page {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
+  height: auto;
   padding: 40px;
   border-radius: 10px;
 }
 
-h2 {
+/*personal info page layout*/
+.profile-container {
+  height: 100%;
+  width: 100%;
+  padding: 40px;
+  margin-bottom: 40px;
   display: flex;
-  align-self: center;
-  font-size: 2em;
-  color: #f0f0f0;
+  align-items: center;
+  justify-content: space-evenly;
 }
+
+/*my pic*/
+.selfie {
+  height: 250px;
+  border-radius: 20px;
+  box-shadow: 0 0px 4px 4px #1c1d2133;
+}
+
+/*info layout*/
+.context-info {
+  display: grid;
+  grid-template-columns: repeat(1, 2fr);
+  grid-template-rows: auto;
+  gap: 20px;
+  align-items: center;
+  width: 60%;
+  height: auto;
+  margin: auto;
+  padding: 40px;
+  background: #1e1e1e3b;
+  border: 1px solid #555555;
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(63, 63, 63, 0.1);
+  transition: all 0.2s ease-out;
+}
+
+.context-info:hover {
+  transform: scale(1.02);
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.info-grid p:nth-child(6) {
+    grid-column: 1 / span 2;
+    justify-self: start;
+    width: 100%;
+}
+
 
 /*box skill layout*/
 .box-container {
@@ -198,7 +277,7 @@ h2 {
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: auto;
   gap: 20px;
-  padding: 50px 0;
+  padding: 40px 0;
   z-index: 0;
 }
 
@@ -209,7 +288,7 @@ h2 {
   justify-content: center;
   height: 150px;
   width: 150px;
-  background:rgba(36, 36, 36, 0.314);
+  background:rgba(36, 36, 36, 0.114);
   backdrop-filter: blur(10px);
   border: 1px solid #555555;
   padding: 20px;
@@ -222,9 +301,14 @@ h2 {
   transition: all 0.2s ease-out;
 }
 
+.box svg {
+  margin-bottom: 3px;
+}
+
 .box:hover {
   transform: scale(1.05);
 }
+
 
 /* Media Query for 1024px */
 @media screen and (max-width: 1024px) {
@@ -234,10 +318,26 @@ h2 {
   .about-me h1 {
     font-size: 3em;
   }
+
+  .profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  
+
+  .context-info {
+    width: 90%;
+    margin-top: 20px;
+  }
+
   /*change box skill layout to 2 columns*/
   .box-container {
     grid-template-columns: repeat(2, 1fr);
   }
+  
   .box:nth-child(5) {
     grid-column: 1 / span 2;
     justify-self: center;
@@ -253,6 +353,10 @@ h2 {
     font-size: 12px;
   }
 
+  .cursor-shadow {
+    display: none;
+  }
+  
   /* change nav layout*/
   nav {
     position: fixed;
@@ -301,7 +405,7 @@ h2 {
     position: absolute;
     top: 50px;
     left: 2%;
-    width: 25%;
+    width: 50%;
     background: rgba(17, 17, 17, 0.096);
     flex-direction: column;
     align-items: center;
@@ -339,6 +443,15 @@ h2 {
     padding-top: 80px;
     width: 100%;
   }
+
+  .profile-container {
+    padding: 0;
+  }
+
+  .context-info {
+    width: 100%;
+  }
+
   .box {
     height: 130px;
     width: 130px;
