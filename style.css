@@ -22,7 +22,6 @@
   animation: fadeInBlur 1s ease-in-out;
 }
 
-
 @media (pointer: coarse) {
   .cursor-shadow {
     display: none;
@@ -32,6 +31,21 @@
 .invert {
   filter: invert(0.9);
 }
+
+.bg-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* เพื่อให้อยู่หลังเนื้อหา */
+  
+  /* กำหนดภาพหรือ gradient ที่ต้องการ */
+  background: linear-gradient(0deg, #1c1d21, #264741);
+  background-size: cover; /* หรือจะใช้ค่าอื่นที่เหมาะสม */
+  background-position: center;
+}
+
 
 /*curser shadow*/
 .cursor-shadow {
@@ -60,9 +74,6 @@ html {
 }
 
 body {
-  background: linear-gradient(0deg, #1c1d21 , #264741);
-  background-attachment: fixed;
-  -webkit-background-attachment: fixed;
   font-family: 'Prompt', sans-serif;
   font-size: 18px;
   overflow-x: hidden;
