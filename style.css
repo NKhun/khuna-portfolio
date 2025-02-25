@@ -238,7 +238,7 @@ nav {
 /*personal info box*/
 .context-info {
   display: grid;
-  grid-template-columns: repeat(1, 2fr);
+  grid-template-columns: repeat(1, 1fr);
   grid-template-rows: auto;
   gap: 20px;
   align-items: center;
@@ -331,11 +331,17 @@ nav {
     justify-content: space-evenly;
   }
 
-  
-
   .context-info {
     width: 90%;
     margin-top: 20px;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .info-grid p:nth-child(6) {
+    grid-column: 1;
   }
 
   /*change box skill layout to 2 columns*/
