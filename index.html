@@ -156,13 +156,14 @@
             if (hasMouse()) {
                 document.querySelector('.cursor-shadow').classList.add('none')
             }
+
             document.addEventListener('mousemove', (e) => {
                 cursor.style.left = `${e.clientX}px`;
                 cursor.style.top = `${e.clientY}px`;
             });
 
             //key typing effect
-            const words = ["a Web Developer", "a Web Designer", "IT สจล. Lover!"];
+            const words = ["a Web Dev", "a Web Designer", "IT สจล. Lover!"];
             let wordIndex = 0;
             let letterIndex = 0;
             let currentText = "";
