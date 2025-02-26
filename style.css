@@ -1,7 +1,12 @@
+/* ===================================================
+   import fonts
+=================================================== */
 @import url('https://fonts.googleapis.com/css2?family=Prompt&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
 
-/*animation on scroll*/
+/* ===================================================
+   animation on scroll
+=================================================== */
 @keyframes fadeInBlur {
   0% {
     filter: blur(6px);
@@ -14,7 +19,7 @@
   }
 }
 
-.animate-on-scroll{
+.animate-on-scroll {
   opacity: 0;
 }
 
@@ -23,31 +28,15 @@
   animation: fadeInBlur 1s ease-in-out;
 }
 
+/* ===================================================
+   cursor shadow (hide on coarse pointers)
+=================================================== */
 @media (pointer: coarse) {
   .cursor-shadow {
     display: none;
   }
 }
 
-.invert {
-  filter: invert(0.9);
-}
-
-/*did this to fix the background bug on safari*/
-.bg-fixed {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  background: linear-gradient(0deg, #1c1d21, #264741);
-  background-size: cover;
-  background-position: center;
-}
-
-
-/*curser shadow*/
 .cursor-shadow {
   position: fixed;
   width: 20px;
@@ -62,7 +51,9 @@
   transition: transform 0.05s ease-in-out;
 }
 
-/*set default layout*/
+/* ===================================================
+   global styles & reset
+=================================================== */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -70,19 +61,70 @@
 }
 
 html {
-  scroll-behavior: smooth; 
+  scroll-behavior: smooth;
 }
 
 body {
-  font-family: 'Prompt', 'Ubuntu', sans-serif;
+  font-family: 'Prompt', sans-serif;
   font-size: 18px;
   overflow-x: hidden;
 }
-  
+
+/* ===================================================
+   background fixed (safari bug fix)
+=================================================== */
+.bg-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: linear-gradient(0deg, #1c1d21, #264741);
+  background-size: cover;
+  background-position: center;
+}
+
+/* ===================================================
+   utility classes
+=================================================== */
+.invert {
+  filter: invert(0.9);
+}
+
+/* ===================================================
+   layout containers
+=================================================== */
 .container {
   display: flex;
   min-height: 100vh;
   min-width: 100vw;
+}
+
+.context-container {
+  margin-left: 160px;
+  width: calc(100vw - 160px);
+  height: 100vh;
+  padding: 40px;
+}
+
+/* ===================================================
+   typography
+=================================================== */
+h1 {
+  font-size: 4.4em;
+  color: #f0f0f0;
+}
+
+h2 {
+  display: flex;
+  align-self: center;
+  font-size: 2em;
+  color: #f0f0f0;
+}
+
+p {
+  color: #f0f0f0;
 }
 
 hr {
@@ -93,24 +135,9 @@ hr {
   margin: 5% 10%;
 }
 
-h1 {
-  font-size: 4.4em;
-  color: #f0f0f0;
-}
-
-h2 {
-  display: flex;
-  align-self: center;
-  font-size: 1.7em;
-  color: #f0f0f0;
-}
-
-p {
-  color: #f0f0f0;
-}
-
-
-/* Navigation sidebar*/
+/* ===================================================
+   navigation sidebar & menu
+=================================================== */
 nav {
   position: fixed;
   top: 0;
@@ -123,7 +150,6 @@ nav {
   z-index: 99;
 }
 
-/*navigation menu*/
 .nav-list {
   display: flex;
   flex-direction: column;
@@ -132,7 +158,7 @@ nav {
   list-style: none;
   width: 80px;
   height: 250px;
-  background-color:rgba(36, 36, 36, 0.425);
+  background-color: rgba(36, 36, 36, 0.425);
   border: 1px solid #555555;
   border-radius: 40px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -151,7 +177,7 @@ nav {
   transform: scale(1.07);
 }
 
-/*tooltip*/
+/* tooltip for navigation menu */
 .nav-list li a::after {
   content: attr(data-tooltip);
   position: absolute;
@@ -159,10 +185,11 @@ nav {
   top: 50%;
   transform: translateY(-50%);
   margin-left: 10px;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgb(31, 31, 31);
   color: #fff;
   padding: 4px 8px;
-  border-radius: 4px;
+  border: 1px solid #383838;
+  border-radius: 6px;
   font-size: 14px;
   white-space: nowrap;
   opacity: 0;
@@ -178,14 +205,9 @@ nav {
   display: none;
 }
 
-.context-container {
-  margin-left: 160px; 
-  width: calc(100vw - 160px);
-  height: 100vh;
-  padding: 40px;
-}
-
-/*main context*/
+/* ===================================================
+   home page & main content
+=================================================== */
 .home-page {
   display: flex;
   flex-direction: column;
@@ -206,7 +228,7 @@ nav {
 }
 
 .home-context h1 span {
-  color: #46f56f;
+  color: #45f078;
 }
 
 .home-context p {
@@ -218,7 +240,9 @@ nav {
   color: #f0f0f0;
 }
 
-/*contact list*/
+/* ===================================================
+   contact list
+=================================================== */
 .contact-list {
   display: flex;
   gap: 3px;
@@ -239,7 +263,9 @@ nav {
   color: #f0f0f0;
 }
 
-/*personal info page*/
+/* ===================================================
+   profile page
+=================================================== */
 .profile-page {
   display: flex;
   flex-direction: column;
@@ -249,9 +275,7 @@ nav {
   border-radius: 10px;
 }
 
-/*personal info page layout*/
 .profile-container {
-  height: 100%;
   width: 100%;
   padding: 40px;
   margin-bottom: 40px;
@@ -260,7 +284,6 @@ nav {
   justify-content: space-evenly;
 }
 
-/*my pic*/
 .selfie {
   height: 250px;
   border-radius: 20px;
@@ -279,7 +302,7 @@ nav {
   z-index: -1;
 }
 
-/*personal info box*/
+/* personal info box */
 .context-info {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
@@ -287,7 +310,6 @@ nav {
   gap: 20px;
   align-items: center;
   width: 60%;
-  height: auto;
   margin: auto;
   padding: 40px;
   background: rgba(36, 36, 36, 0.2);
@@ -309,12 +331,14 @@ nav {
 }
 
 .info-grid p:nth-child(6) {
-    grid-column: 1 / span 2;
-    justify-self: start;
-    width: 100%;
+  grid-column: 1 / span 2;
+  justify-self: start;
+  width: 100%;
 }
 
-/*box skill layout*/
+/* ===================================================
+   box skill layout
+=================================================== */
 .box-container {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -324,7 +348,7 @@ nav {
 }
 
 .box {
-  position: relative; /* สำคัญ! เพื่อให้ overlay อ้างอิงกับ box นี้ */
+  position: relative; /* for overlay reference */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -348,7 +372,7 @@ nav {
   margin-bottom: 3px;
 }
 
-/* Overlay description */
+/* overlay description for technology box */
 .description {
   position: absolute;
   top: 0;
@@ -356,12 +380,12 @@ nav {
   width: 100%;
   height: 100%;
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
   justify-content: center;
-  background: linear-gradient(to top, #f0f0f0d3 50%, rgba(138, 138, 138, 0.108));
-  backdrop-filter: blur(10px);
-  color: #1c1d21;
-  font-size: 0.6em;
+  background: linear-gradient(to top, rgba(36, 36, 36, 0.1), rgba(36, 36, 36, 0.589) 50%);
+  backdrop-filter: blur(50px);
+  color: #f0f0f0;
+  font-size: 0.7em;
   font-weight: lighter;
   text-align: left;
   opacity: 0;
@@ -379,7 +403,122 @@ nav {
   transform: scale(1.05);
 }
 
-/* Media Query for 1024px */
+/* ===================================================
+   project page
+=================================================== */
+.project-page {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 0 40px 40px;
+}
+
+.project-page .header {
+  font-size: 3em;
+  margin: 0 0 40px 0;
+}
+
+.project-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: auto;
+  background: rgba(36, 36, 36, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid #555555;
+  border-radius: 15px;
+  padding: 40px 0;
+  margin: 15px 0;
+  transition: all 0.2s ease-out;
+}
+
+.project-box:hover, .project-box-reverse:hover {
+  transform: scale(1.01);
+}
+
+.project-box-reverse {
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  justify-content: space-evenly;
+  width: auto;
+  background: rgba(36, 36, 36, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid #555555;
+  border-radius: 15px;
+  padding: 40px 0;
+  margin: 15px 0;
+  transition: all 0.2s ease-out;
+}
+
+.project-img {
+  height: 220px;
+  width: 391px;
+  border-radius: 9px;
+  cursor: pointer;
+}
+
+/* swift route image hover effect */
+#swiftroute-img {
+  background: url('swiftroute-preview.png') no-repeat center center;
+  background-size: cover;
+  transition: background 0.5s ease;
+}
+
+#swiftroute-img:hover {
+  background: url('swiftroute.jpg') no-repeat center center;
+  background-size: cover;
+}
+
+/* 14.02 image hover effect */
+#valentine-img {
+  background: url('valentine-preview.png') no-repeat center center;
+  background-size: cover;
+  transition: background 0.5s ease;
+}
+
+#valentine-img:hover {
+  background: url('valentine.png') no-repeat center center;
+  background-size: cover;
+}
+
+/* text container */
+.text-container {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  max-width: 50%;
+  margin: 0 20px;
+}
+
+#swiftroute {
+  color: #f5ba53;
+  align-self: flex-start;
+}
+
+#valentine {
+  color: #f8a1c6;
+  align-self: flex-start;
+}
+
+.footer {
+  display: flex;
+  text-align: center;
+  opacity: 0.4;
+  font-size: 0.8em;
+  font-weight: bold;
+  color: #75b9acb0;
+  margin: 40px 0;
+}
+
+
+/* ===================================================
+   media queries
+=================================================== */
+
+/* for screens up to 1024px */
 @media screen and (max-width: 1024px) {
   body {
     font-size: 14px;
@@ -416,7 +555,7 @@ nav {
     height: 12px;
   }
 
-  /*change box skill layout to 2 columns*/
+  /* change box skill layout to 2 columns */
   .box-container {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -427,20 +566,37 @@ nav {
     width: 50%;
   }
   
+  .description {
+    font-size: 0.8em;
+  }
+
+  .project-page {
+    padding: 0;
+  }
+  
+  .project-img {
+    height: 120px;
+    width: 213px;
+    border-radius: 9px;
+    cursor: pointer;
+    margin: 0 20px;
+  }
 }
 
 
-/* Media Query for 768px */
+
+
+/* for screens up to 768px */
 @media screen and (max-width: 768px) {
   body {
     font-size: 12px;
   }
 
-h1 {
+  h1 {
     font-size: 2em;
   }
 
-  /* change nav layout*/
+  /* navigation adjustments */
   nav {
     position: fixed;
     top: 0;
@@ -454,12 +610,11 @@ h1 {
     align-items: center;
   }
 
-  /*burger nav*/
+  /* burger menu */
   .burger {
     display: flex;
     flex-direction: column;
     cursor: pointer;
-    
   }
 
   .burger .line {
@@ -468,7 +623,6 @@ h1 {
     background: #f0f0f0;
     margin: 3px 0;
     transition: all 0.2s ease-in-out;
-    
   }
 
   .burger.active .line:nth-child(1) {
@@ -501,14 +655,11 @@ h1 {
     transition: opacity 0.3s ease, transform 0.3s ease;
   }
 
-  /*show menu*/
+  /* show menu */
   .nav-list.active {
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
-  }
-
-  .nav-list.active {
     display: flex;
   }
 
@@ -516,8 +667,12 @@ h1 {
     display: none;
   }
 
-  /*disable tooltips*/
-  .nav-list li a::after  {
+  .nav-list li a:hover {
+    transform: scale(1.1);
+  }
+
+  /* disable tooltips */
+  .nav-list li a::after {
     display: none;
   }
 
@@ -541,7 +696,7 @@ h1 {
     padding: 0;
   }
 
-  .profile-page{
+  .profile-page {
     padding: 20px;
   }
 
@@ -557,10 +712,30 @@ h1 {
     height: 10px;
   }
 
-
   .box {
     height: 130px;
     width: 130px;
     z-index: 0;
+  }
+
+  .description {
+    font-size: 0.9em;
+  }
+
+  .project-page {
+    padding: 0;
+  }
+
+  .project-box, .project-box-reverse {
+    flex-direction: column;
+    max-width: 80%;
+  }
+
+  .project-img {
+    height: 100px;
+    width: 178px;
+    border-radius: 9px;
+    margin-bottom: 20px;
+    cursor: pointer;
   }
 }
