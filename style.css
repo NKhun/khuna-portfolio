@@ -424,7 +424,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  width: auto;
+  max-width: 80%;
   background: rgba(36, 36, 36, 0.2);
   backdrop-filter: blur(10px);
   border: 1px solid #555555;
@@ -444,7 +444,7 @@ nav {
   align-items: center;
   flex-direction: row-reverse;
   justify-content: space-evenly;
-  width: cover;
+  max-width: 80%;
   background: rgba(36, 36, 36, 0.2);
   backdrop-filter: blur(10px);
   border: 1px solid #555555;
