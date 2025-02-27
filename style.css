@@ -429,8 +429,9 @@ nav {
   backdrop-filter: blur(10px);
   border: 1px solid #555555;
   border-radius: 15px;
-  padding: 40px 0;
+  padding: 40px;
   margin: 15px 0;
+  gap: 20px;
   transition: all 0.2s ease-out;
 }
 
@@ -443,13 +444,14 @@ nav {
   align-items: center;
   flex-direction: row-reverse;
   justify-content: space-evenly;
-  width: auto;
+  width: cover;
   background: rgba(36, 36, 36, 0.2);
   backdrop-filter: blur(10px);
   border: 1px solid #555555;
   border-radius: 15px;
-  padding: 40px 0;
+  padding: 40px;
   margin: 15px 0;
+  gap: 20px;
   transition: all 0.2s ease-out;
 }
 
@@ -490,7 +492,6 @@ nav {
   flex-direction: column;
   text-align: left;
   max-width: 50%;
-  margin: 0 20px;
 }
 
 #swiftroute {
@@ -729,6 +730,8 @@ nav {
   .project-box, .project-box-reverse {
     flex-direction: column;
     max-width: 80%;
+    padding: 20px;
+    gap: 0;
   }
 
   .project-img {
@@ -737,5 +740,9 @@ nav {
     border-radius: 9px;
     margin-bottom: 20px;
     cursor: pointer;
+  }
+
+  .text-container {
+    max-width: 100%;
   }
 }
